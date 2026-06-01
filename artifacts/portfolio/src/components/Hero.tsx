@@ -59,13 +59,19 @@ function IndianFlag() {
     <div className="w-44 h-28 flex flex-col overflow-hidden rounded-sm border border-white/10 shadow-[0_0_40px_rgba(255,153,51,0.6)]">
       <div className="flex-1 bg-[#FF9933]" />
       <div className="flex-1 bg-white flex items-center justify-center">
-        <div className="w-6 h-6 rounded-full border-2 border-[#000080] relative flex items-center justify-center">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div key={i} className="absolute w-[1px] h-[9px] bg-[#000080] origin-bottom"
-              style={{ transform: `rotate(${i * 30}deg) translateY(-3.5px)` }} />
-          ))}
-          <div className="w-2 h-2 rounded-full bg-[#000080]" />
-        </div>
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" fill="none" stroke="#000080" strokeWidth="1.2" />
+          {Array.from({ length: 24 }).map((_, i) => {
+            const angle = (i * 15 * Math.PI) / 180;
+            return (
+              <line key={i}
+                x1={12 + 2.5 * Math.cos(angle)} y1={12 + 2.5 * Math.sin(angle)}
+                x2={12 + 9.5 * Math.cos(angle)} y2={12 + 9.5 * Math.sin(angle)}
+                stroke="#000080" strokeWidth="0.8" strokeLinecap="round" />
+            );
+          })}
+          <circle cx="12" cy="12" r="2" fill="#000080" />
+        </svg>
       </div>
       <div className="flex-1 bg-[#138808]" />
     </div>

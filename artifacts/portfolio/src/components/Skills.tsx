@@ -4,28 +4,28 @@ import { useRef, useEffect } from "react";
 /* ── Attribute categories (FIFA-style) ── */
 const CATS = [
   {
-    code: "FUL", label: "Fullstack", value: 91,
-    subs: [{ name: "React.js", v: 92 }, { name: "Node.js", v: 90 }, { name: "Express.js", v: 91 }],
+    code: "FUL", label: "Fullstack", value: 78,
+    subs: [{ name: "React.js", v: 79 }, { name: "Node.js", v: 77 }, { name: "Express.js", v: 76 }],
   },
   {
-    code: "CLO", label: "Cloud", value: 88,
-    subs: [{ name: "Google Cloud", v: 84 }, { name: "Vercel", v: 93 }, { name: "Supabase", v: 87 }],
+    code: "CLO", label: "Cloud", value: 72,
+    subs: [{ name: "Google Cloud", v: 70 }, { name: "Vercel", v: 76 }, { name: "Supabase", v: 73 }],
   },
   {
-    code: "DAT", label: "Database", value: 89,
-    subs: [{ name: "MongoDB", v: 89 }, { name: "Supabase", v: 87 }, { name: "SQL", v: 84 }],
+    code: "DAT", label: "Database", value: 75,
+    subs: [{ name: "MongoDB", v: 75 }, { name: "Supabase", v: 73 }, { name: "SQL", v: 69 }],
   },
   {
-    code: "SYS", label: "Systems", value: 86,
-    subs: [{ name: "Python", v: 88 }, { name: "C / C++", v: 85 }, { name: "Algorithms", v: 86 }],
+    code: "SYS", label: "Systems", value: 71,
+    subs: [{ name: "Python", v: 73 }, { name: "C / C++", v: 70 }, { name: "Algorithms", v: 71 }],
   },
   {
-    code: "COL", label: "Collab", value: 95,
-    subs: [{ name: "Git / GitHub", v: 95 }, { name: "Agile", v: 92 }, { name: "Docs", v: 90 }],
+    code: "COL", label: "Collab", value: 80,
+    subs: [{ name: "Git / GitHub", v: 81 }, { name: "Agile", v: 77 }, { name: "Docs", v: 74 }],
   },
   {
-    code: "INF", label: "Infra", value: 84,
-    subs: [{ name: "CI / CD", v: 82 }, { name: "Serverless", v: 86 }, { name: "Docker", v: 80 }],
+    code: "INF", label: "Infra", value: 68,
+    subs: [{ name: "CI / CD", v: 66 }, { name: "Serverless", v: 70 }, { name: "Docker", v: 64 }],
   },
 ];
 

@@ -88,7 +88,7 @@ export default function FUTCard({ holographic = false }: { holographic?: boolean
           {/* Top row: rating / position / badge */}
           <div className="flex items-start justify-between mb-2">
             <div className="flex flex-col items-center leading-none">
-              <span className="font-bebas text-[#f0d060] text-4xl md:text-5xl leading-none drop-shadow-[0_0_10px_rgba(240,208,96,0.8)]">92</span>
+              <span className="font-bebas text-[#f0d060] text-4xl md:text-5xl leading-none drop-shadow-[0_0_10px_rgba(240,208,96,0.8)]">75</span>
               <span className="font-bebas text-[#c9a84c] text-sm tracking-widest">SCE</span>
               {/* Shuttlecock */}
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="mt-1 opacity-80">
@@ -159,10 +159,6 @@ export default function FUTCard({ holographic = false }: { holographic?: boolean
 
         </div>
 
-        {/* EA Sports watermark */}
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
-          <span className="font-bebas text-[8px] tracking-[0.3em] text-white/12">EA SPORTS FC</span>
-        </div>
 
         {/* Gold corner accents */}
         <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-[#c9a84c]/40 rounded-tl-sm pointer-events-none" />
