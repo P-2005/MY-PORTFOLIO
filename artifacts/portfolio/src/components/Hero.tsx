@@ -162,6 +162,16 @@ const LIGHTNING_BOLTS = [
   { d: "M-60,440 L240,424 L480,448 L720,428 L960,448 L1200,432 L1340,440", delay: 0.10, color: "#80b0ff" },
 ];
 
+/* Gold lightning for card reveal celebration */
+const CARD_LIGHTNING = [
+  { d: "M-60,100 L200,80 L400,115 L600,85 L800,110 L1040,88 L1340,102", delay: 0.05, color: "#f0d060" },
+  { d: "M-60,620 L200,600 L420,632 L640,608 L860,628 L1100,610 L1340,618", delay: 0.08, color: "#c9a84c" },
+  { d: "M-60,360 L300,342 L560,368 L820,344 L1080,366 L1340,352", delay: 0.02, color: "#ffd700" },
+  { d: "M300,0 L285,180 L310,340 L292,520 L298,720", delay: 0.06, color: "#f0d060" },
+  { d: "M980,0 L965,180 L990,340 L972,520 L978,720", delay: 0.10, color: "#c9a84c" },
+  { d: "M640,0 L625,200 L648,380 L630,560 L636,720", delay: 0.03, color: "#ffffff" },
+];
+
 export default function Hero({ onRevealComplete }: { onRevealComplete?: () => void }) {
   const [phase, setPhase] = useState<Phase>(PHASE.BLACKOUT);
   const shakeControls = useAnimation();
@@ -378,11 +388,52 @@ export default function Hero({ onRevealComplete }: { onRevealComplete?: () => vo
                     style={{ perspective: 1400 }}
                     exit={{ scale: 0.08, opacity: 0, rotateY: 45, transition: { duration: 0.4, ease: "easeIn" } }}
                   >
+                    {/* ── CARD CELEBRATION: gold flash + lightning + shockwaves ── */}
+                    <div className="absolute inset-0 pointer-events-none">
+                      {/* Gold screen flash */}
+                      <motion.div className="absolute inset-0 bg-[#f0d060]"
+                        initial={{ opacity: 0.65 }} animate={{ opacity: 0 }}
+                        transition={{ duration: 0.45, delay: 0.08 }} />
+
+                      {/* Gold lightning bolts */}
+                      {CARD_LIGHTNING.map((b, i) => <LightningBolt key={i} {...b} />)}
+
+                      {/* Lens flare */}
+                      <LensFlare />
+
+                      {/* Gold spark particles scattered around */}
+                      {Array.from({ length: 22 }).map((_, i) => (
+                        <motion.div key={i}
+                          className="absolute rounded-full bg-[#f0d060]"
+                          style={{
+                            left: `${10 + (i * 4.1) % 80}%`,
+                            top: `${10 + (i * 7.3) % 80}%`,
+                            width: 2 + (i % 3),
+                            height: 2 + (i % 3),
+                          }}
+                          initial={{ opacity: 0, scale: 0 }}
+                          animate={{ opacity: [0, 1, 0], scale: [0, 1.8, 0] }}
+                          transition={{ duration: 0.5, delay: 0.05 + i * 0.025 }} />
+                      ))}
+
+                      {/* Shockwave rings from centre */}
+                      {[0, 0.1, 0.22].map((delay, i) => (
+                        <motion.div key={i}
+                          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[#f0d060] pointer-events-none"
+                          initial={{ width: 12, height: 12, opacity: 0.95 }}
+                          animate={{ width: 900, height: 900, opacity: 0 }}
+                          transition={{ duration: 0.85, delay, ease: "easeOut" }} />
+                      ))}
+
+                      {/* Spark burst from centre */}
+                      <SparkBurst sparks={sparks} />
+                    </div>
+
                     {/* Pulsing glow halo behind card */}
                     <motion.div className="absolute w-80 h-[500px] rounded-full pointer-events-none"
                       animate={{ boxShadow: [
                         "0 0 60px 20px rgba(201,168,76,0.2)",
-                        "0 0 120px 50px rgba(201,168,76,0.45)",
+                        "0 0 140px 60px rgba(201,168,76,0.55)",
                         "0 0 60px 20px rgba(201,168,76,0.2)",
                       ]}}
                       transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}

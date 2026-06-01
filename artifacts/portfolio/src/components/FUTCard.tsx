@@ -111,8 +111,12 @@ export default function FUTCard({ holographic = false }: { holographic?: boolean
 
           {/* Avatar */}
           <div className="flex justify-center my-2">
-            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-[#c9a84c] bg-gradient-to-br from-[#1a1408] to-[#0a0a0a] flex items-center justify-center shadow-[0_0_20px_rgba(201,168,76,0.4),inset_0_0_12px_rgba(201,168,76,0.1)]">
-              <span className="font-bebas text-2xl md:text-3xl text-white drop-shadow-[0_1px_6px_rgba(201,168,76,0.8)]">PM</span>
+            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-[#c9a84c] overflow-hidden shadow-[0_0_20px_rgba(201,168,76,0.5),0_0_40px_rgba(201,168,76,0.2)]">
+              <img
+                src="/parv-photo.png"
+                alt="Parv Malav"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
           </div>
 
