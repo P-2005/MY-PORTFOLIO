@@ -24,6 +24,7 @@ export default function Navigation() {
     { name: "History", href: "#experience" },
     { name: "Attributes", href: "#skills" },
     { name: "Projects", href: "#projects" },
+    { name: "Honours", href: "#certifications" },
     { name: "Contact", href: "#contact" }
   ];
 
