@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import FUTCard from "./FUTCard";
 import GoldParticles from "./GoldParticles";
+import vitLogo from "/vit-logo.png";
 
 const PHASE = {
   BLACKOUT:   0,
@@ -17,36 +18,20 @@ type Phase = (typeof PHASE)[keyof typeof PHASE];
 function VITEmblem() {
   return (
     <div className="flex flex-col items-center gap-2">
-      {/* Shield crest */}
-      <div className="relative w-32 h-36 flex items-center justify-center"
-        style={{ filter: "drop-shadow(0 0 30px rgba(201,168,76,0.8))" }}>
-        <svg width="128" height="144" viewBox="0 0 128 144" fill="none">
-          {/* Shield border */}
-          <path d="M64 4 L120 24 L120 88 Q120 130 64 142 Q8 130 8 88 L8 24 Z"
-            fill="url(#vitGold)" stroke="#f0d060" strokeWidth="2" />
-          <defs>
-            <linearGradient id="vitGold" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#1a1408" />
-              <stop offset="100%" stopColor="#0d0d0d" />
-            </linearGradient>
-          </defs>
-          {/* Inner shield line */}
-          <path d="M64 12 L112 28 L112 88 Q112 124 64 136 Q16 124 16 88 L16 28 Z"
-            fill="none" stroke="rgba(201,168,76,0.35)" strokeWidth="1" />
-          {/* VIT text */}
-          <text x="64" y="70" textAnchor="middle" fill="#f0d060"
-            fontSize="32" fontWeight="bold" fontFamily="Arial" letterSpacing="4">VIT</text>
-          {/* Divider line */}
-          <line x1="28" y1="80" x2="100" y2="80" stroke="#c9a84c" strokeWidth="1" opacity="0.6" />
-          {/* Stars row */}
-          {[-24, -12, 0, 12, 24].map((offset, i) => (
-            <text key={i} x={64 + offset} y="100" textAnchor="middle"
-              fill="#c9a84c" fontSize="10" fontFamily="Arial">★</text>
-          ))}
-          {/* Est. year */}
-          <text x="64" y="120" textAnchor="middle" fill="rgba(201,168,76,0.5)"
-            fontSize="8" fontFamily="Arial" letterSpacing="3">EST. 1984</text>
-        </svg>
+      <div
+        className="relative flex items-center justify-center"
+        style={{ filter: "drop-shadow(0 0 28px rgba(201,168,76,0.7))" }}
+      >
+        <img
+          src={vitLogo}
+          alt="VIT Chennai"
+          className="w-64 h-auto object-contain"
+          style={{
+            filter:
+              "invert(1) sepia(1) saturate(3.5) hue-rotate(5deg) brightness(0.88)",
+            mixBlendMode: "screen",
+          }}
+        />
       </div>
     </div>
   );
